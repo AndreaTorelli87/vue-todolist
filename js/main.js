@@ -14,7 +14,11 @@ const { createApp } = Vue
                   done: false
                 }
         ],
-        indice: 0
+        indiceTodo: 0
+      }},
+    methods: {
+      eliminaTodo(indice){
+        this.lista.splice(indice,1);
       }
     }
   }).mount('#app')
