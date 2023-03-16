@@ -4,21 +4,36 @@ const { createApp } = Vue
     data() {return {
         lista: [
                 {
-                  text: "crea la repo",
+                  text: "Crea la repo",
                   done: true
                 },{
-                  text: "scrivi il codice",
+                  text: "Scrivi il codice",
                   done: false
                 },{
-                  text: "commit e push",
+                  text: "Commit e push",
                   done: false
                 }
         ],
-        indiceTodo: 0
+        nuovoTodo: ""
       }},
     methods: {
       eliminaTodo(indice){
         this.lista.splice(indice,1);
+      },
+      aggiungiTodo() {
+        this.lista.push({
+          text: this.nuovoTodo,
+          done: false
+        });
+        this.nuovoTodo = "";
+      },
+      cambiaDone(indice){
+        console.log(this.lista[indice].done);
+        if (this.lista[indice].done == false){
+          this.lista[indice].done = true;
+        } else {
+          this.lista[indice].done = false;
+        }
       }
     }
   }).mount('#app')

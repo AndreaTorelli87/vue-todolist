@@ -20,16 +20,16 @@
                     </div>
                 </header>
                 <main>
+                    <div class="input-group">
+                        <input type="text" placeholder="Aggiungi qualcosa da fare" v-model="nuovoTodo" @keyup.enter="aggiungiTodo">
+                        <button @click="aggiungiTodo">Aggiungi</button>
+                    </div>
                     <div v-for="(todo, indice) in lista">
-                        <span :class="(todo.done)?'text-decoration-line-through':''">{{todo.text}}</span>
+                        <span :class="(todo.done)?'text-decoration-line-through':''" @click="cambiaDone(indice)">{{todo.text}}</span>
                         <i class="bi bi-trash-fill" @click="eliminaTodo(indice)"></i>
                     </div>
                 </main>
-            </div>
-        
-
-
-        
+            </div>        
         </div>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
